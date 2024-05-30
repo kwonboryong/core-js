@@ -72,9 +72,28 @@ console.clear();
 const user = {
   name: 'tiger',
   age: 20,
+  sum: function (a, b) {
+    return a + b;
+  },
+
+  // 1. nomal function
+  sayHi: function () {
+    return 'hello';
+  },
+
+  // 2. arrow function
+  sayHi2: () => {
+    return this; // window가 나옴
+  },
+
+  // 3. concies method
+  sayHi3() {
+    return this; // 자신을 가리킴
+  },
 };
 
-console.log(user.age);
+console.log(user);
+console.log(user.sum);
 
 // Array
 const newArray = new Array(1, 2, 3); // 생성자 함수

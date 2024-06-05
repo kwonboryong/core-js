@@ -14,9 +14,9 @@ function getRandomValue() {
 
 // 함수 선언        매개변수            default parameter
 function calcPrice(
-  priceA, 
-  priceB, 
-  priceC = getRandomValue(), 
+  priceA,
+  priceB,
+  priceC = getRandomValue(),
   priceD = getRandomValue()) {
   // validation (확인 작업)
   // 1. if (priceC === undefined) {
@@ -28,7 +28,7 @@ function calcPrice(
   // 3. priceC ||= 0;
 
   // 4. priceC ??= 0;
-  
+
   console.log(priceA + priceB + priceC + priceD);
 }
 
@@ -83,7 +83,7 @@ console.log(rem('20px'));
 // 반드시 === 이후의 값을 반환하지 않으면 에러 뜨도록 확인
 console.assert(rem(20) === '1.25rem')
 console.assert(rem('25px') === '1.5625rem')
-console.assert(rem('30px',10) === '3rem')
+console.assert(rem('30px', 10) === '3rem')
 
 // throw new Error('에러 문구'): 에러 발생시키기
 
@@ -93,7 +93,8 @@ console.assert(rem('30px',10) === '3rem')
 // setStyle('.first', 'color', 'blue')
 
 // 1번째 방법
-function setStyle (className, color) {
+// 설정하는 함수 (리턴값 X)
+function setStyle(className, color) {
   document.querySelector('.' + className).style.color = color;
 }
 
@@ -103,9 +104,11 @@ setStyle('second', 'pink');
 // 2번째 방법
 const first = document.querySelector('.first');
 
-function setStyle2 (node, prop, value) {
+function setStyle2(node, prop, value) {
+  // node의 값을 'h1'으로 받았을 경우
   if (typeof node === 'string') node = document.querySelector(node);
-  
+
+  // prop의 값이 string이 아닐 경우
   if (typeof prop !== 'string') throw new Error('setStyle 함수의 두 번째 인수는 문자 타입이어야 한다.');
 
   if (!value) throw new Error('setStyle 함수의 세 번째 인수는 필수값 입니다.');
@@ -115,12 +118,39 @@ function setStyle2 (node, prop, value) {
 
 setStyle2(first, 'color', 'red')
 
-
-// node의 값을 'h1'으로 받았을 경우
 // node가 없거나 document.ELEMENT_NODE가 아닐 경우
-// prop의 값이 string이 아닐 경우
 // prop의 값이 sytle 속성이 아닐 경우
 // value의 값이 number가 아닌 경우
+
+
+// 결과값 리턴
+function getStyle(node, prop) {
+
+  if (typeof node === 'string') node = document.querySelector(node);
+  if (typeof prop !== 'string') throw new Error('getStyle 함수의 두 번째 인수는 문자 타입 이어야 합니다.');
+
+  return getComputedStyle(node)[prop]
+}
+
+const h1FontSize = getStyle('.first', 'fontSize') 
+console.log(h1FontSize); // 32px
+
+
+function css(node, prop, value) {
+  // if (!value) {
+  //   // getter
+  //   return getStyle(node, prop)
+
+  // } else {
+  //   // setter
+  //   setStyle(node, prop, value) // undefiend
+  // }
+
+  return !value ? getStyle(node, prop) : setStyle(node, prop, value);
+}
+
+css('.first', 'color', 'red'); // setter (undefined)
+css('.first', 'color'); // getter
 
 
 

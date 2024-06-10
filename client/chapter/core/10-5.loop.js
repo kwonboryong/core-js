@@ -23,6 +23,19 @@ const arrayLike = {
   length: 3
 }
 
+
+const entries = Object.entries(arrayLike);
+
+for (let keyValue of entries) {
+  console.log(keyValue);
+}
+
+// const keys = Object.keys(arrayLike);
+
+// for (let key of keys) {
+//   console.log(key);
+// }
+
 // for (let value of 'hello') {
 //   console.log(value);
 // }
@@ -115,9 +128,9 @@ const randomUser = {
 // 객체 => 배열 for of
 
 // Object.keys(): 객체의 키만 담아서 배열로 반환
-const keys = Object.keys(arrayLike);
+// const keys = Object.keys(arrayLike);
 const values = Object.values(arrayLike);
-const entries = Object.entries(arrayLike);
+// const entries = Object.entries(arrayLike);
 
 for (let keyValue of entries) {
   // console.log(keyValue);
@@ -164,31 +177,31 @@ function hasProperty(obj, key) {
 //   }
 // }
 
-console.time()
+// console.time()
 
 // for of 버전
 for (let keyValue of Object.entries(randomUser)) {
   let key = keyValue[0];
   let value = keyValue[1];
-  console.log('1:', value);
+  // console.log('1:', value);
 
   if (typeof value === 'object') {
 
     for (let keyValue of Object.entries(value)) {
       let key = keyValue[0];
       let value = keyValue[1];
-      console.log('2:', value);
+      // console.log('2:', value);
 
       if (typeof value === 'object') {
         for (let keyValue of Object.entries(value)) {
           let key = keyValue[0];
           let value = keyValue[1];
 
-          console.log('3:', value);
+          // console.log('3:', value);
         }
       }
     }
   }
 }
 
-console.timeEnd()
+// console.timeEnd()

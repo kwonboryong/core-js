@@ -4,55 +4,51 @@
 
 /* global isObject */
 
+const html = /* html */ `
+  <h1>title</h1>
+  <div class="first">
+    hello
+  </div>
+`
 
 
+/* Primitives vs. Object --------- */
 
-// const html = /* html */ `
-//   <h1>title</h1>
-//   <div class="first">
-//     hello
-//   </div>
-// `
+// key:value 쌍으로 구성된 엔티티(entity) 데이터 구조
+let cssCode = /* css */ `
+  .dialog {
+    position: fixed;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    width: 60vw;
+    max-width: 800px;
+    height: 40vh;
+    min-height: 280px;
+    transform: translate(-50%, -50%);
+  }
+`;
 
-
-
-// /* Primitives vs. Object --------- */
-
-// // key:value 쌍으로 구성된 엔티티(entity) 데이터 구조
-// let cssCode = /* css */ `
-//   .dialog {
-//     position: fixed;
-//     z-index: 10000;
-//     top: 50%;
-//     left: 50%;
-//     width: 60vw;
-//     max-width: 800px;
-//     height: 40vh;
-//     min-height: 280px;
-//     transform: translate(-50%, -50%);
-//   }
-// `;
-
-// // 위 CSS 스타일 코드를 JavaScript 객체로 작성해봅니다.
-// let cssMap = {
-//   position: 'fixed',
-//   zIndex:10000,
-//   top:'50%',
-//   left:'50%',
-//   width:'60vw',
-//   maxWidth:800,
-//   height:'40vh',
-//   minHeight:280,
-//   transform: 'translate(-50%, -50%)'
-// };
+// 위 CSS 스타일 코드를 JavaScript 객체로 작성해봅니다.
+let cssMap = {
+  position: 'fixed',
+  zIndex:10000,
+  top:'50%',
+  left:'50%',
+  width:'60vw',
+  maxWidth:800,
+  height:'40vh',
+  minHeight:280,
+  transform: 'translate(-50%, -50%)'
+};
 
 
-// // 인증 사용자 정보를 객체로 구성해봅니다.
-// // 인증 사용자(authentication user)
-// // - 이름
-// // - 이메일
-// // - 로그인 여부
-// // - 유료 사용자 권한
+// 인증 사용자 정보를 객체로 구성해봅니다.
+// 인증 사용자(authentication user)
+// - 이름
+// - 이메일
+// - 로그인 여부
+// - 유료 사용자 권한
 
 // let authUser = null;
 
@@ -247,20 +243,12 @@
 // // const [first,second] = document.querySelectorAll('span');
 
 
-
-
-
 // // const first = spanList[0];
 // // const second = spanList[1];
 
 
 // // const first = document.querySelector('.first');
 // // const second = document.querySelector('.second');
-
-
-
-
-
 
 
 // /* -------------------------------------------- */

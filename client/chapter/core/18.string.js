@@ -81,27 +81,85 @@ checkBrowser() // chrome
 
 
 
-let lastIndexOf;
-let includes;
-let startsWith;
-let endsWith;
+// <string 메서드>
+let lastIndexOf = message.lastIndexOf('s');
+console.log('lastIndexOf', lastIndexOf)
 
 
-// 공백 잘라내기
-let trimLeft;
-let trimRight;
-let trim;
+let includes = message.includes('Less')
+console.log('includes', includes)
 
 
-// 텍스트 반복
-let repeat;
+let startsWith = message.startsWith('less')
+console.log('startsWith', startsWith)
 
 
-// 대소문자 변환
-let toLowerCase;
-let toUpperCase;
+let endsWith = message.endsWith('more')
+console.log('endsWith', endsWith)
 
 
-// 텍스트 이름 변환 유틸리티 함수
-let toCamelCase;
-let toPascalCase;
+
+// <공백 잘라내기>
+let str = '         a      b    c          d           '
+
+// 시작 부분 공백 제거
+let trimStart = str.trimStart();
+console.log('trimStart', trimStart)
+
+// 끝 부분 공백 제거
+let trimEnd = str.trimEnd()
+console.log('trimEnd', trimEnd)
+
+// 양쪽 공백 제거
+let trim = str.trim();
+console.log('trim', trim)
+
+// 모든 공백 제거 (중간 공백)
+// - 1번째 방법: replaceAll
+const replaceAll = str.replaceAll(' ', '')
+console.log('replaceAll', replaceAll)
+
+// - 2번째 방법: 정규표현식
+const replace = str.replace(/\s*/g, '')
+console.log('replace', replace)
+
+// - 3번째 방법: 함수
+const trimText = (str) => str.replace(/\s*/g, '')
+
+console.log(trimText(str));
+
+
+
+// <텍스트 반복>
+let repeat = message.repeat(3);
+console.log('repeat', repeat)
+
+
+
+// <대소문자 변환>
+let toLowerCase = message.toLowerCase();
+console.log('toLowerCase', toLowerCase)
+
+
+let toUpperCase = message.toUpperCase();
+console.log('toUpperCase', toUpperCase)
+
+
+
+// <텍스트 이름 변환 유틸리티 함수>
+// 카멜 케이스
+function toCamelCase(string) {
+  return string.replace(/(\s|-|_)+./g, ($1) => $1.trim().replace(/(-|_)+/, '').toUpperCase())
+}
+
+console.log('toCamelCase', toCamelCase(message))
+
+
+// 파스칼 케이스
+function toPascalCase(string) {
+  let name = toCamelCase(string);
+  return name[0].toUpperCase() + name.slice(1);
+}
+
+console.log('toPascalCase', toPascalCase(message))
+

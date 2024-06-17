@@ -1,27 +1,27 @@
 /* -------------------- */
 /* String Type          */
 /* -------------------- */
-
-let message = 'Less is more.';
-
-
-// length 프로퍼티
-let stringTotalLength = message.length;
-
-console.log(stringTotalLength);
-
-
-// 특정 인덱스의 글자 추출
-let extractCharacter = message[5];
-
-console.log('extractCharacter : ', extractCharacter)
-
-
 // enumerable // 열거 가능한
 // iterable // 반복 가능한
 // immutable // 불변의
 // mutable // 변경 가능한
 // mutant // 돌연변이
+
+
+let message = 'Less is more.';
+
+
+// length 프로퍼티 (공백 포함)
+let stringTotalLength = message.length;
+
+console.log(stringTotalLength);
+
+
+// 특정 인덱스의 글자 추출 (공백 미포함)
+let extractCharacter = message[5];
+
+console.log('extractCharacter : ', extractCharacter)
+
 
 // const a = {...immutable} 
 
@@ -32,12 +32,11 @@ let immutableChangeCharacter = 'P' + message.slice(1);
 console.log(message);
 
 
-
 // 부분 문자열 추출
 let slice = message.slice(4, -1);
 console.log('slice : ', slice)
 
-let subString = message.substring(2, 5);
+let subString = message.substring(1, 5);
 console.log('subString : ', subString)
 
 // let subStr = message.substr();
@@ -77,37 +76,40 @@ function checkBrowser() {
   return browserName
 }
 
-checkBrowser() // chrome
+checkBrowser() // 'Chrome'
+
 
 
 
 // <string 메서드>
+// let message = 'Less is more.';
+
 let lastIndexOf = message.lastIndexOf('s');
 console.log('lastIndexOf', lastIndexOf)
 
 
 let includes = message.includes('Less')
-console.log('includes', includes)
+console.log('includes', includes) // true
 
 
 let startsWith = message.startsWith('less')
-console.log('startsWith', startsWith)
+console.log('startsWith', startsWith) // false
 
 
 let endsWith = message.endsWith('more')
-console.log('endsWith', endsWith)
+console.log('endsWith', endsWith) // false
 
 
 
 // <공백 잘라내기>
-let str = '         a      b    c          d           '
+let str = '         a      b    c          d           ';
 
 // 시작 부분 공백 제거
 let trimStart = str.trimStart();
 console.log('trimStart', trimStart)
 
 // 끝 부분 공백 제거
-let trimEnd = str.trimEnd()
+let trimEnd = str.trimEnd();
 console.log('trimEnd', trimEnd)
 
 // 양쪽 공백 제거
@@ -116,16 +118,15 @@ console.log('trim', trim)
 
 // 모든 공백 제거 (중간 공백)
 // - 1번째 방법: replaceAll
-const replaceAll = str.replaceAll(' ', '')
-console.log('replaceAll', replaceAll)
+const replaceAll = str.replaceAll(' ', '');
+console.log('replaceAll', replaceAll);
 
 // - 2번째 방법: 정규표현식
-const replace = str.replace(/\s*/g, '')
-console.log('replace', replace)
+const replace = str.replace(/\s*/g, '');
+console.log('replace', replace);
 
 // - 3번째 방법: 함수
-const trimText = (str) => str.replace(/\s*/g, '')
-
+const trimText = (str) => str.replace(/\s*/g, '');
 console.log(trimText(str));
 
 
@@ -133,7 +134,6 @@ console.log(trimText(str));
 // <텍스트 반복>
 let repeat = message.repeat(3);
 console.log('repeat', repeat)
-
 
 
 // <대소문자 변환>
@@ -162,4 +162,3 @@ function toPascalCase(string) {
 }
 
 console.log('toPascalCase', toPascalCase(message))
-

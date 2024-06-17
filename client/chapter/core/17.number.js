@@ -17,11 +17,11 @@ riches = 1e8;
 // 그렇다면 아래 작성된 숫자 값은 얼마일까요?
 riches = 1.45e6; // → 1.45 * 10 ** 6
 
-console.log( riches );
+console.log(riches);
 
 // 작은 수도 `e`를 사용해 표현할 수 있습니다.
 riches = 1e-6; // → 1 / 10 ** 6
-console.log( riches );
+console.log(riches);
 
 /* 어림수 ---------------------------------------------------------------- */
 
@@ -29,36 +29,39 @@ let number = 90_127.53100032;
 
 // 내림
 let floor = Math.floor(number);
-console.log('floor : ',floor)
+console.log('floor : ', floor)
 
 // 반올림
 let round = Math.round(number);
-console.log('round : ',round)
+console.log('round : ', round)
 
 // 올림
 let ceil = Math.ceil(number);
-console.log('ceil : ',ceil)
+console.log('ceil : ', ceil)
 
 // 절삭(소수점 이하)
 let truncate = Math.trunc(number);
-console.log('truncate : ',truncate)
+console.log('truncate : ', truncate)
 
 // 난수
 let random = Math.random() * 10;
-console.log('random : ',random)
+console.log('random : ', random)
 
 // 여러 수 중, 최댓값
-let max = Math.max(30,50,100);
-console.log('max : ',max)
+let max = Math.max(30, 50, 100);
+console.log('max : ', max)
 
 // 여러 수 중, 최솟값
-let min = Math.min(-10,5,100,-9);
-console.log('min : ',min)
+let min = Math.min(-10, 5, 100, -9);
+console.log('min : ', min)
 
 // 거듭제곱
-let pow = Math.pow(2,53);
-console.log('pow : ',pow)
+let pow = Math.pow(2, 53);
+console.log('pow : ', pow)
 
+// 절댓값
+const abs = Math.abs(-10);
+console.log('abs : ', abs)
 
 // Math.sin()
 // Math.cos()
@@ -66,27 +69,18 @@ console.log('pow : ',pow)
 
 let count = 0;
 // setInterval(() => {
-  // console.log( Math.sin(++count) );
+//   console.log( Math.sin(++count) );
 // }, 10);
 
 
 // 최소, 최대 값 사이 난수 반환 함수
-let getRandomMinMax = (min,max) => {
+let getRandomMinMax = (min, max) => {
   return Math.round(Math.random() * (max - min) + min)
 };
 
 // let getRandomMinMax = (min,max) => Math.round(Math.random() * (max - min) + min)
 
-getRandomMinMax(10,20)
-
-
-// 절댓값
-
-
-const abs = Math.abs(-10);
-console.log('abs : ',abs)
-
-
+getRandomMinMax(10, 20)
 
 
 

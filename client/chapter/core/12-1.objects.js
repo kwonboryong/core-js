@@ -161,14 +161,6 @@ let cssMap = {
 
 
 
-
-
-
-
-
-
-
-
 // // 계산된 프로퍼티 (computed property)
 // let calculateProperty = 'tel'; // phone | tel
 

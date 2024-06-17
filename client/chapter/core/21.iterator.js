@@ -19,11 +19,55 @@ for (const a of iter) {
 
 console.log(iter.next())
 
-
-
 // 유사배열 vs. 이터러블
 // - 유사배열 : 인덱스 키와 length 속성을 가진 객체
 // - 이터러블 : Symbol.Iterator 메서드를 가지는 객체
 
 
-// 유사배열, 이터러블 배열화
+/* 제너레이터 함수
+function* 함수명() {
+        ...
+}
+: Iterator 객체 만들기
+- yield: 값을 뽑아내는 형태(산출)
+- 화살표 함수로 생성 불가능 X
+
+*/
+function* gen() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gene = gen()
+
+console.log(gene.next());
+
+
+const customIter = {
+  *[Symbol.iterator]() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+}
+
+for (const a of customIter) {
+  console.log(a);
+}
+/*
+1
+2
+3
+*/
+
+
+function* idGenerator(){
+  let id = 1;
+  while(true){
+    yield ++id
+  }
+}
+
+const id = idGenerator();
+

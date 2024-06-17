@@ -108,10 +108,10 @@ span.forEach((tag) => {
 
 /* 원형 파괴 ----------------------------- */
 // push
-// people.push('admin')
+people.push('admin')
 
 // pop
-// people.pop('')
+people.pop('')
 
 // unshift
 
@@ -121,10 +121,11 @@ span.forEach((tag) => {
 const arr = [...people];
 arr.reverse();
 
-// console.log(arr);
+console.log(arr);
+
 
 // splice (push + pop + splice)
-// people.splice(0, 2, '안녕')
+people.splice(0, 2, '안녕')
 
 // sort (compare function이 필요함)
 function compare(a, b) {
@@ -133,11 +134,11 @@ function compare(a, b) {
   if (a < b) return -1; // 첫 번째 값이 두 번째 값보다 작은 경우
 }
 
-// people.sort(compare);
+people.sort(compare);
 
 
 
-/* 새로운 배열 반환(원본 보존) ------------------------ */
+/* 새로운 배열 반환(원본 보존)------------------- */
 // concat
 
 // toSpliced
@@ -158,16 +159,17 @@ const nameList = people.map((user) => {
 // 화살표 함수
 // const nameList = people.map(u => u.name)
 
-// 현재 나이에서 + 2된 배열을 반환
-// const age = people.map((user)=>{
-//   return user.age + 2
-// })
+
+// - 현재 나이에서 + 2된 배열을 반환
+const age = people.map((user) => {
+  return user.age + 2
+})
 
 // 화살표 함수
-const age = people.map(u => u.age + 2);
+// const age = people.map(u => u.age + 2);
 
 
-// html 만들기
+// - html 만들기
 const cardTag = people.map(({ name, age, job, imgSrc, imgAlt }) => {
 
   let template = /* html */`
@@ -188,7 +190,7 @@ const cardTag = people.map(({ name, age, job, imgSrc, imgAlt }) => {
 const ul = document.querySelector('ul');
 
 cardTag.forEach(tag => ul.insertAdjacentHTML('beforeend', tag))
-// 넣을 태그.insertAdjacentHTML('위치', 넣을 요소):
+// 넣을 태그.insertAdjacentHTML('위치', 넣을 요소)
 
 
 
@@ -206,10 +208,11 @@ const 황 = people.find((itme) => {
   return itme.name === '황선우'
 })
 
-// console.log('황', 황)
+console.log('황', 황)
 
 
 // findIndex
+
 
 
 /* 요소 걸러내기 --------------------------- */
@@ -219,28 +222,33 @@ const filter = people.filter((itme) => {
   return itme.age > 20
 })
 
-// console.log('filter', ...filter) // 구조분해(...)로 각자 배열로 반환
+console.log('filter', ...filter) // 구조분해(...)로 각자 배열로 반환
 
 
 /* 요소별 리듀서(reducer) 실행 -------------- */
 // reduce
-// const reduce = people.reduce((acc,cur)=>{
-//   return acc + cur.age 
-// },0)
+const reduce = people.reduce((acc, cur) => {
+  return acc + cur.age
+}, 0)
 
-const reduce = people.reduce((acc, cur) => acc + cur.age, 0)
+// 화살표 함수
+// const reduce = people.reduce((acc, cur) => acc + cur.age, 0)
 
+// - html 추가하기
 const template = people.reduce((acc, cur) => {
   return acc + `<li class="userCard"> ${cur.name} : ${cur.age} </li>`
 }, '')
 
 ul.insertAdjacentHTML('beforeend', template)
 
+
 // reduceRight
+
 
 
 /* string ←→ array 변환 ------------------ */
 const str = '유진 정민 현주 재명';
+
 
 // split: 문자 -> 배열로 바꿔서 반환
 const stringToArray = str.split(' ');
@@ -254,18 +262,18 @@ const arrayToString = stringToArray.join('-');
 console.log('arrayToString', arrayToString);
 
 
-//------------------------------------------------
 
-// const user = {
-//   grades:[1,2,3],
-//   sayHi(){
+/* 배열 메서드 파헤쳐보기-------------------------*/
 
-//     this.grades.forEach(()=>{
-//       this
-//     })
-//   }
-// }
+const user = {
+  grades: [1, 2, 3],
+  sayHi() {
 
+    this.grades.forEach(() => {
+      this
+    })
+  }
+}
 
 const products = [
   { name: '냉동 만두', price: 10000, brand: '비비고' },

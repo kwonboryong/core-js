@@ -93,11 +93,12 @@ function getGeo(success) {
 }
 
 getGeo((data) => {
-  console.log(data); // {lat: 39.9983488, long: 121.1037952} 
+  console.log(data); 
+  // {lat: 39.9983488, long: 121.1037952} 
 })
 
 
-// promise 사용
+// promise 사용--------------------
 function getGeolocation() {
 
   return new Promise((resolve, reject) => {

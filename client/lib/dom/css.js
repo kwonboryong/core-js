@@ -1,12 +1,20 @@
+import { getNode } from "./getNode.js";
+import { isString, isObject, isArray} from "../utils/type.js";
+
 /* -------------------------------------------- */
 /*                     class                    */
 /* -------------------------------------------- */
+/**
+ * 
+ * @param {HTMLElement | string} node 
+ * @param  {string | array | object} className 
+ * @returns {void}
+ */
 
-function addClass(node, ...className) {
+export function addClass(node, ...className) {
 
   if (typeof node === 'string') node = document.querySelector(node)
 
-  // 사용자가 개떡같이 집어넣어도 잘 처리하는 함수
   className.forEach((c) => {
 
     if (isObject(c)) c = Object.values(c)
@@ -25,13 +33,7 @@ function addClass(node, ...className) {
   })
 }
 
-addClass('.ground', ['a', 'b', 'c'])
-addClass('.ground', 'a', 'b', 'c')
-addClass('.ground', 'a,b,c')
-addClass('.ground', { a: 'one', b: 'two' })
-
-
-function removeClass(node, className) {
+export function removeClass(node, className) {
 
   if (typeof node === 'string') node = document.querySelector(node)
 
@@ -48,7 +50,7 @@ function removeClass(node, className) {
 }
 
 
-function toggleClass(node, className) {
+export function toggleClass(node, className) {
   if (typeof node === 'string') node = document.querySelector(node)
 
   if (typeof className !== 'string') {
@@ -57,6 +59,7 @@ function toggleClass(node, className) {
 
   return node.classList.toggle(className);
 }
+
 
 
 /* -------------------------------------------- */
@@ -88,5 +91,5 @@ function setStyle(node, prop, value) {
 
 }
 
-const css = (node, prop, value) => !value ? getStyle(node, prop) : setStyle(node, prop, value);
+export const css = (node, prop, value) => !value ? getStyle(node, prop) : setStyle(node, prop, value);
 

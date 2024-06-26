@@ -1,3 +1,3 @@
-const a = 'hello';
+import { } from "./lib/index.js";
 
-console.log('안녕 웹 브라우저');
+const ENDPOINT = 'https://jsonplaceholder.typicode.com/users'
